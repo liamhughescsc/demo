@@ -7,7 +7,7 @@ curl https://awscli.amazonaws.com/AWSCLIV2.pkg -o AWSCLIV2.pkg
 sudo installer -pkg AWSCLIV2.pkg -target /
 
 # Install Tools
-sudo yum install yq jq make
+brew install yq jq make
 
 # Install Docker
 curl https://desktop.docker.com/mac/main/amd64/Docker.dmg
