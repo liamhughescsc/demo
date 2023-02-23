@@ -33,14 +33,16 @@ brew install git
 brew install aws-cdk
 
 # Install Session Manager
-curl “https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac/sessionmanager-bundle.zip" -o "sessionmanager-bundle.zip"
+curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac/sessionmanager-bundle.zip" -o "sessionmanager-bundle.zip"
 unzip sessionmanager-bundle.zip
 sudo ./sessionmanager-bundle/install -i /usr/local/sessionmanagerplugin -b /usr/local/bin/session-manager-plugin
 
 curl --header "PRIVATE-TOKEN: $1" https://gitlab.aws.dev/api/v4/projects/26145/repository/archive.zip --output archive.zip
-unzip archive.zip -d DetC
-cd DetC
+unzip archive.zip
+mkdir DetC
+mv detonation-chamber-main-*/* DetC/
 
+cd DetC
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
