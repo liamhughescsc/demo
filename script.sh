@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! [[ -z "$1" ]]
+if [[ -z "$1" ]]
 then
    echo "Please pass the personal access token for GitLab"
    echo "Example: ./script.sh glpat-asdasdasdasdsad"
