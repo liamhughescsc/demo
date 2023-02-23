@@ -15,6 +15,14 @@ if [[ $? != 0 ]]; then
     eval "$(/usr/local/bin/brew shellenv)"
 fi
 
+# Install Python
+brew install pyenv
+pyenv install -s 3.9.13
+echo 'export PYENV_ROOT=$HOME/.pyenv' >> ~/.zshrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+source ~/.zshrc
+
 # Install AWS CLI
 brew install awscli
 
@@ -24,14 +32,6 @@ brew install yq jq make
 # Install Docker
 brew install docker --cask
 open -a Docker
-
-# Install Python
-brew install pyenv
-pyenv install -s 3.9.13 
-echo 'export PYENV_ROOT=$HOME/.pyenv' >> ~/.zshrc
-echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-source ~/.zshrc
 
 # Install Git
 brew install git
