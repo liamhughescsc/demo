@@ -8,9 +8,12 @@ then
 fi
 
 # Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
-(echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> /Users/user/.zprofile
-eval "$(/usr/local/bin/brew shellenv)"
+which -s brew
+if [[ $? != 0 ]]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" 
+    (echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') >> /Users/user/.zprofile
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
 
 # Install AWS CLI
 brew install awscli
