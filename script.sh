@@ -25,6 +25,10 @@ open -a Docker
 # Install Python
 brew install pyenv
 pyenv install -s 3.9.13 
+echo 'export PYENV_ROOT=$HOME/.pyenv' >> ~/.zshrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+source ~/.zshrc
 
 # Install Git
 brew install git
@@ -43,6 +47,7 @@ mkdir DetC
 mv detonation-chamber-main-*/* DetC/
 
 cd DetC
+pyenv local 3.9.13
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
