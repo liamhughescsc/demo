@@ -21,10 +21,13 @@ pyenv install -s 3.9.13
 echo 'export PYENV_ROOT=$HOME/.pyenv' >> ~/.zshrc
 echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-source ~/.zshrc
+
 
 # Install AWS CLI
 brew install awscli
+echo "autoload bashcompinit && bashcompinit" >> ~/.zshrc
+echo "autoload -Uz compinit && compinit" >> ~/.zshrc 
+source ~/.zshrc
 
 # Install Tools
 brew install yq jq make
